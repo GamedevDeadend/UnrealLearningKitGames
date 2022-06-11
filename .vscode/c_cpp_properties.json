@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "UnrealLearningKitGamesEditor Editor Win64 Development (UnrealLearningKitGames)",
+            "intelliSenseMode": "msvc-x64",
+            "compileCommands": "D:\\Games Repos\\ObstacleAssault\\UnrealLearningKitGames\\.vscode\\compileCommands_UnrealLearningKitGames.json",
+            "cStandard": "c17",
+            "cppStandard": "c++14"
+        },
+        {
+            "name": "Win32",
+            "intelliSenseMode": "msvc-x64",
+            "compileCommands": "D:\\Games Repos\\ObstacleAssault\\UnrealLearningKitGames\\.vscode\\compileCommands_Default.json",
+            "cStandard": "c17",
+            "cppStandard": "c++14"
+        }
+    ],
+    "version": 4
+}
