@@ -1,3 +1,4 @@
+
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
@@ -15,6 +16,8 @@ AMovingPlatform::AMovingPlatform()
 void AMovingPlatform::BeginPlay()
 {
 	Super::BeginPlay();
+
+	PlatformStartPostion = GetActorLocation();
 	
 }
 
@@ -22,6 +25,22 @@ void AMovingPlatform::BeginPlay()
 void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	FVector CurrentLocation = GetActorLocation();
+
+	CurrentLocation = CurrentLocation + (PlatformVelocity* DeltaTime);
+
+	float PlatformDistance = FVector :: Dist(PlatformStartPostion, CurrentLocation);
+
+	if(PlatformDistance > MovedDistance)
+	{
+
+		FVector MoveDirection =  PlatformVelocity.GetSafeNormal();
+		PlatformStartPostion = PlatformStartPostion + MoveDirection * MovedDistance;
+		PlatformVelocity = -PlatformVelocity;
+	}
+
+	SetActorLocation(CurrentLocation);
 
 }
 
