@@ -10,12 +10,7 @@
 		}
 	],
 	"settings": {
-		"typescript.tsc.autoDetect": "off",
-		"C_Cpp.default.forcedInclude": [
-			"${default}",
-			"D:\\Games Repos\\ObstacleAssault\\UnrealLearningKitGames\\Intermediate\\Build\\Win64\\UnrealEditor\\Development\\UnrealLearningKitGames\\Definitions.UnrealLearningKitGames.h",
-			"D:\\Games Repos\\ObstacleAssault\\UnrealLearningKitGames\\Intermediate\\Build\\Win64\\UnrealLearningKitGamesEditor\\Development\\Engine\\SharedPCH.Engine.ShadowErrors.h"
-		]
+		"typescript.tsc.autoDetect": "off"
 	},
 	"extensions": {
 		"recommendations": [

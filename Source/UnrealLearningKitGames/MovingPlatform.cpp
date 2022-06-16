@@ -1,15 +1,12 @@
 
 // Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "MovingPlatform.h"
 
 // Sets default values
 AMovingPlatform::AMovingPlatform()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
 }
 
 // Called when the game starts or when spawned
@@ -18,29 +15,46 @@ void AMovingPlatform::BeginPlay()
 	Super::BeginPlay();
 
 	PlatformStartPostion = GetActorLocation();
-	
 }
 
 // Called every frame
 void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	MovePlatform(DeltaTime);
+	RotatePlatform(DeltaTime);
+}
 
-	FVector CurrentLocation = GetActorLocation();
-
-	CurrentLocation = CurrentLocation + (PlatformVelocity* DeltaTime);
-
-	float PlatformDistance = FVector :: Dist(PlatformStartPostion, CurrentLocation);
-
-	if(PlatformDistance > MovedDistance)
+void AMovingPlatform ::MovePlatform(float DeltaTime)
+{
+	if (ShouldTurnAround())
 	{
-
-		FVector MoveDirection =  PlatformVelocity.GetSafeNormal();
+		FVector MoveDirection = PlatformVelocity.GetSafeNormal();
 		PlatformStartPostion = PlatformStartPostion + MoveDirection * MovedDistance;
 		PlatformVelocity = -PlatformVelocity;
 	}
 
-	SetActorLocation(CurrentLocation);
-
+	else
+	{
+		FVector CurrentLocation = GetActorLocation();
+		CurrentLocation = CurrentLocation + (PlatformVelocity * DeltaTime);
+		SetActorLocation(CurrentLocation);
+	}
 }
 
+void AMovingPlatform ::RotatePlatform(float Deltatime)
+{
+	FRotator CurrentRotation  = GetActorRotation();
+	CurrentRotation = CurrentRotation + RotationVelocity * Deltatime;
+	SetActorRotation(CurrentRotation);
+}
+
+float AMovingPlatform ::PlatformDistance () const
+{
+	return (FVector ::Dist(PlatformStartPostion, GetActorLocation()));
+}
+
+bool AMovingPlatform :: ShouldTurnAround () const
+{
+	return (PlatformDistance() > MovedDistance);
+}

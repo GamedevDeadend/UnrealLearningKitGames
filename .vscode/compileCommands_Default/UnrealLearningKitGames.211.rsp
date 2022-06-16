@@ -304,7 +304,7 @@
 /I "F:\UE_5.0\Engine\Source\Runtime\ClothingSystemRuntimeInterface\Public" 
 /I "F:\UE_5.0\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AnimationDataController" 
 /I "F:\UE_5.0\Engine\Source\Developer\AnimationDataController\Public" 
-/I "D:\Games Repos\ObstacleAssault\UnrealLearningKitGames\Intermediate\Build\Win64\UnrealEditor\Development\UnrealLearningKitGames" 
+/I "D:\Games Repos\ObstacleAssault\UnrealLearningKitGames\Intermediate\Build\Win64\UnrealEditor\Inc\UnrealLearningKitGames" 
 /I "D:\Games Repos\ObstacleAssault\UnrealLearningKitGames\Source" 
 /I "F:\UE_5.0\Engine\Source\ThirdParty\mimalloc\include" 
 /I "F:\UE_5.0\Engine\Source\ThirdParty\LibTiff\Source\Win64" 

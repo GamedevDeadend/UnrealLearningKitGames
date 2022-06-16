@@ -10,6 +10,25 @@ UCLASS()
 class UNREALLEARNINGKITGAMES_API AMovingPlatform : public AActor
 {
 	GENERATED_BODY()
+
+private:
+
+	UPROPERTY(EditAnywhere, Category = "Moving Platform")
+	FVector PlatformVelocity = FVector(100, 0, 0);
+
+	UPROPERTY(EditAnywhere, Category = "Moving Platform")
+	FVector PlatformStartPostion;
+
+	UPROPERTY(EditAnywhere, Category = "Moving Platform")
+	float MovedDistance = 60.0f;
+
+	UPROPERTY(EditAnywhere, Category = "Moving Platform")
+	FRotator RotationVelocity;
+
+	void MovePlatform(float a);
+	void RotatePlatform(float a);
+	float PlatformDistance() const;
+	bool ShouldTurnAround() const;
 	
 public:	
 	// Sets default values for this actor's properties
@@ -23,12 +42,4 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditAnywhere, Category = "Moving Platform")
-	FVector PlatformVelocity = FVector(100, 0, 0);
-
-	UPROPERTY(EditAnywhere, Category = "Moving Platform")
-	FVector PlatformStartPostion;
-
-	UPROPERTY(EditAnywhere, Category = "Moving Platform")
-	float MovedDistance = 60.0f;
 };
